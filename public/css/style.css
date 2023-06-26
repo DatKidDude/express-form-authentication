@@ -1,4 +1,219 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+:root {
+  --ff-Roboto: "Poppins", sans-serif;
+
+  --clr-green: hsl(170, 100%, 39%);
+  --clr-dark-blue: hsl(224, 42%, 12%);
+  --clr-soft-white: hsl(240, 50%, 99%);
+  --clr-grey: hsl(0, 0%, 75%);
+
+  --fw-400: 400;
+  --fw-500: 500;
+  --fw-600: 600;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
-  background-color: #333;
-  color: green;
+  font-family: var(--ff-Roboto);
+  color: var(--clr-soft-white);
+  background-color: var(--clr-green);
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+input {
+  font-family: inherit;
+}
+
+a {
+  color: var(--clr-green);
+  text-decoration: none;
+  font-weight: var(--fw-500);
+}
+
+main {
+  width: 100%;
+  padding-inline: 1rem;
+}
+
+.form-card {
+  background-color: transparent;
+  width: 100%;
+  max-width: 350px;
+  height: 500px;
+  background-color: transparent;
+  margin-inline: auto;
+  perspective: 1000px;
+}
+
+.form-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+
+.form-card.active .form-card-inner {
+  transform: rotateY(180deg);
+}
+
+.form-card-front,
+.form-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.625rem;
+  padding: 1rem 1.5rem;
+  backface-visibility: hidden;
+  background-color: var(--clr-dark-blue);
+}
+
+.form-card-front h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.form-field {
+  position: relative;
+  height: 100%;
+}
+
+.form-field:nth-child(2) {
+  margin-block: 1.5rem 0.3125rem;
+}
+
+::placeholder {
+  letter-spacing: 1px;
+}
+
+.form-field input {
+  width: 100%;
+  background: transparent;
+  padding: 0.625rem 0.625rem 0.625rem 2.25rem;
+  font-size: 1rem;
+  color: var(--clr-soft-white);
+  border: 1px solid var(--clr-soft-white);
+  border-radius: 3px;
+}
+
+.form-field input:focus {
+  outline: 0;
+  border: 2px solid var(--clr-soft-white);
+}
+
+.form-field.invalid input {
+  border: 2px solid red;
+  animation: errorShake 0.5s;
+}
+
+.icon-identifiers {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.form-field i {
+  font-size: 1.125rem;
+  color: var(--clr-grey);
+}
+
+.icon-visibility {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.help {
+  display: none;
+}
+
+.form-field.invalid .help {
+  display: block;
+  color: hsl(0, 100%, 40%);
+  margin-top: 0.3125rem;
+  font-size: 12px;
+  letter-spacing: 1px;
+  font-weight: var(--fw-600);
+}
+
+input[type="submit"] {
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  font-size: 1.125rem;
+  letter-spacing: 1px;
+  font-weight: var(--fw-500);
+  margin-top: 2rem;
+  padding: 0.625rem;
+  background-color: var(--clr-green);
+  color: var(--clr-soft-white);
+  border: none;
+  border-radius: 0.3125rem;
+}
+
+.sign-up-now {
+  display: block;
+  text-align: center;
+}
+
+.form-card-back {
+  transform: rotateY(180deg);
+}
+
+@keyframes errorShake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
 }
