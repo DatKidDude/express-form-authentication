@@ -57,8 +57,7 @@ main {
 .grid-container {
   display: grid;
   grid-template-columns: 1fr;
-  width: max-content;
-  margin-inline: auto;
+  place-items: center;
 }
 
 .form-card {
@@ -150,6 +149,7 @@ main {
 
 .help {
   display: none;
+  text-align: start;
 }
 
 .forgot-password {

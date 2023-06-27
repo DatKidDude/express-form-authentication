@@ -21,10 +21,17 @@
           <div class="form-card-inner">
             <div class="form-card-front">
               <h1>Login Form</h1>
-              <form action="#" class="form login">
+              <form action="./" class="form login" method="post" novalidate>
                 <div class="form-field">
                   <label class="visually-hidden" for="email">Email</label>
-                  <input type="email" placeholder="Email Address" />
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email Address"
+                    autocomplete="email"
+                    minlength="8"
+                    required
+                  />
                   <span class="icon-identifiers"
                     ><i class="fa-solid fa-envelope"></i
                   ></span>
@@ -32,7 +39,13 @@
                 </div>
                 <div class="form-field">
                   <label class="visually-hidden" for="password">Password</label>
-                  <input type="password" placeholder="Password" />
+                  <input
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    minlength="8"
+                    required
+                  />
                   <span class="icon-identifiers"
                     ><i class="fa-solid fa-lock"></i
                   ></span>
@@ -48,18 +61,28 @@
             </div>
             <div class="form-card-back">
               <h1>Create Account</h1>
-              <form action="#" class="form login">
+              <form action="#" class="form sign-up" novalidate>
                 <div class="form-field">
                   <label class="visually-hidden" for="username">Username</label>
-                  <input type="text" placeholder="Username" />
+                  <input
+                    type="text"
+                    placeholder="Username"
+                    name="username"
+                    required
+                  />
                   <span class="icon-identifiers"
-                    ><i class="fa-solid fa-envelope"></i
+                    ><i class="fa-solid fa-user"></i
                   ></span>
                   <p class="help">Username must be at least 3 characters</p>
                 </div>
                 <div class="form-field">
                   <label class="visually-hidden" for="email">email</label>
-                  <input type="email" placeholder="Email Address" />
+                  <input
+                    type="email"
+                    placeholder="Email Address"
+                    name="email"
+                    required
+                  />
                   <span class="icon-identifiers"
                     ><i class="fa-solid fa-envelope"></i
                   ></span>
@@ -67,7 +90,12 @@
                 </div>
                 <div class="form-field">
                   <label class="visually-hidden" for="password">Password</label>
-                  <input type="password" placeholder="Password" />
+                  <input
+                    type="password"
+                    placeholder="Password"
+                    name="password"
+                    required
+                  />
                   <span class="icon-identifiers"
                     ><i class="fa-solid fa-lock"></i
                   ></span>
