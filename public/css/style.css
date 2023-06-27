@@ -54,20 +54,20 @@ main {
   padding-inline: 1rem;
 }
 
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: max-content;
+  margin-inline: auto;
+}
+
 .form-card {
   background-color: transparent;
-  width: 100%;
-  max-width: 350px;
-  height: 500px;
-  background-color: transparent;
-  margin-inline: auto;
   perspective: 1000px;
 }
 
 .form-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
+  display: grid;
   transition: transform 0.5s;
   transform-style: preserve-3d;
 }
@@ -78,16 +78,15 @@ main {
 
 .form-card-front,
 .form-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
+  grid-area: 1/1;
   border-radius: 0.625rem;
   padding: 1rem 1.5rem;
   backface-visibility: hidden;
   background-color: var(--clr-dark-blue);
 }
 
-.form-card-front h1 {
+.form-card-front,
+.form-card-back h1 {
   text-align: center;
   margin-bottom: 2rem;
 }
@@ -97,8 +96,12 @@ main {
   height: 100%;
 }
 
-.form-field:nth-child(2) {
+.form-card-front .form-field:nth-child(2) {
   margin-block: 1.5rem 0.3125rem;
+}
+
+.form-card-back .form-field:nth-child(2) {
+  margin-block: 1.5rem;
 }
 
 ::placeholder {
@@ -147,6 +150,11 @@ main {
 
 .help {
   display: none;
+}
+
+.forgot-password {
+  display: block;
+  text-align: start;
 }
 
 .form-field.invalid .help {
