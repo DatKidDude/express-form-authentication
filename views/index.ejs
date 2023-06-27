@@ -40,6 +40,7 @@
                 <div class="form-field">
                   <label class="visually-hidden" for="password">Password</label>
                   <input
+                    id="passInput"
                     type="password"
                     name="password"
                     placeholder="Password"
@@ -49,8 +50,13 @@
                   <span class="icon-identifiers"
                     ><i class="fa-solid fa-lock"></i
                   ></span>
-                  <button class="icon-visibility">
-                    <i class="fa-regular fa-eye"></i>
+                  <button
+                    id="passBtn"
+                    class="icon-visibility"
+                    title="view password"
+                    type="button"
+                  >
+                    <i class="fa-regular fa-eye" data-icon="eye"></i>
                   </button>
                   <p class="help">Password must be at least 8 characers</p>
                 </div>
@@ -68,6 +74,7 @@
                     type="text"
                     placeholder="Username"
                     name="username"
+                    autocomplete="nickname"
                     required
                   />
                   <span class="icon-identifiers"
@@ -80,6 +87,7 @@
                   <input
                     type="email"
                     placeholder="Email Address"
+                    autocomplete="email"
                     name="email"
                     required
                   />
@@ -91,16 +99,23 @@
                 <div class="form-field">
                   <label class="visually-hidden" for="password">Password</label>
                   <input
+                    id="passInput"
                     type="password"
-                    placeholder="Password"
                     name="password"
+                    placeholder="Password"
+                    minlength="8"
                     required
                   />
                   <span class="icon-identifiers"
                     ><i class="fa-solid fa-lock"></i
                   ></span>
-                  <button class="icon-visibility">
-                    <i class="fa-regular fa-eye"></i>
+                  <button
+                    id="passBtn"
+                    class="icon-visibility"
+                    title="view password"
+                    type="button"
+                  >
+                    <i class="fa-regular fa-eye" data-icon="eye"></i>
                   </button>
                   <p class="help">Password must be at least 8 characers</p>
                 </div>

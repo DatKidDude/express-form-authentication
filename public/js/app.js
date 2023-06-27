@@ -1,15 +1,17 @@
 /* Deleting when project is done */
-// const formCard = document.querySelector(".form-card");
-// const body = document.body;
+const formCard = document.querySelector(".form-card");
+const body = document.body;
 
-// body.addEventListener("keyup", (e) => {
-//   if (e.key === "f") {
-//     formCard.classList.toggle("active");
-//   }
-// });
+body.addEventListener("keyup", (e) => {
+  if (e.key === "0") {
+    formCard.classList.toggle("active");
+  }
+});
 
 const forms = document.querySelectorAll("form");
+const passBtns = document.querySelectorAll("#passBtn");
 
+// Custom form validation
 forms.forEach((form) => {
   form.addEventListener("submit", validateForm);
 });
@@ -46,13 +48,29 @@ function validateForm(e) {
     e.stopImmediatePropagation();
 
     fields.forEach((field) => {
-      // skip over the visibility icon and submit button
-      if (field.tagName === "BUTTON" || field.type === "submit") return;
-
       // if field fails add invalid class
       if (!field.checkValidity()) {
         field.parentElement.classList.add("invalid");
       }
     });
+  }
+}
+
+passBtns.forEach((passBtn) => {
+  passBtn.addEventListener("click", togglePasswordVisibility);
+});
+
+function togglePasswordVisibility(e) {
+  // get the current parent form
+  const parentForm = e.currentTarget.parentElement.parentElement;
+  const passInputField = parentForm.querySelector("#passInput");
+  const eyeIcon = parentForm.querySelector("[data-icon='eye']");
+
+  if (passInputField.type === "password") {
+    passInputField.setAttribute("type", "text");
+    eyeIcon.className = "fa-regular fa-eye-slash";
+  } else {
+    passInputField.setAttribute("type", "password");
+    eyeIcon.className = "fa-regular fa-eye";
   }
 }

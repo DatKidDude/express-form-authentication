@@ -133,18 +133,19 @@ main {
   left: 10px;
 }
 
-.form-field i {
-  font-size: 1.125rem;
-  color: var(--clr-grey);
-}
-
 .icon-visibility {
+  cursor: pointer;
   background: transparent;
   border: none;
-  cursor: pointer;
+  border-radius: 50%;
   position: absolute;
   right: 10px;
-  top: 10px;
+  top: 12px;
+}
+
+.icon-visibility i {
+  font-size: 1.125rem;
+  color: var(--clr-grey);
 }
 
 .help {
@@ -155,6 +156,7 @@ main {
 .forgot-password {
   display: block;
   text-align: start;
+  width: max-content;
 }
 
 .form-field.invalid .help {
