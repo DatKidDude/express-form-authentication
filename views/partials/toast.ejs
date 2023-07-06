@@ -1,0 +1,26 @@
+<div class="toast-wrapper">
+  <% if (typeof serverError !== "undefined") { %>
+  <div id="warning" class="toast warning" aria-hidden="false">
+    <div class="container-1">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+    </div>
+    <div class="container-2">
+      <p>Warning</p>
+      <p><%= serverError %></p>
+    </div>
+    <button>&times;</button>
+  </div>
+</div>
+<%} else {%>
+  <div id="warning" class="toast warning visually-hidden" aria-hidden="true">
+    <div class="container-1">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+    </div>
+    <div class="container-2">
+      <p>Warning</p>
+      <p></p>
+    </div>
+    <button>&times;</button>
+  </div>
+</div>
+<% } %>

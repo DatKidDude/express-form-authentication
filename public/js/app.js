@@ -1,35 +1,14 @@
-/* Deleting when project is done */
 const formCard = document.querySelector(".form-card");
-const body = document.body;
-
-body.addEventListener("keyup", (e) => {
-  if (e.key === "0") {
-    formCard.classList.toggle("active");
-  }
-});
-
 const forms = document.querySelectorAll("form");
 const passBtns = document.querySelectorAll("#passBtn");
+const signUpNow = document.querySelector("#signUpNow");
+const toastWarningBtn = document.querySelector("#warning button");
 
-// Custom form validation
 forms.forEach((form) => {
   form.addEventListener("submit", validateForm);
 });
 
-forms.forEach((form) => {
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    // retrieve current form data
-    const formData = new FormData(e.target);
-
-    // console.log(formData);
-    for (const [key, value] of formData.entries()) {
-      console.log(`${key}: ${value}`);
-    }
-  });
-});
-
+// Custom form validation
 function validateForm(e) {
   // assign the target form
   const currentForm = e.target;
@@ -45,7 +24,6 @@ function validateForm(e) {
   // if currentForm fails validation
   if (!currentForm.checkValidity()) {
     e.preventDefault();
-    e.stopImmediatePropagation();
 
     fields.forEach((field) => {
       // if field fails add invalid class
@@ -56,6 +34,7 @@ function validateForm(e) {
   }
 }
 
+// add event listener to each password eye icon
 passBtns.forEach((passBtn) => {
   passBtn.addEventListener("click", togglePasswordVisibility);
 });
@@ -74,3 +53,25 @@ function togglePasswordVisibility(e) {
     eyeIcon.className = "fa-regular fa-eye";
   }
 }
+
+// rotates the form card
+signUpNow.addEventListener("click", () => {
+  formCard.classList.add("active");
+});
+
+loginNow.addEventListener("click", () => {
+  formCard.classList.remove("active");
+});
+
+// toast notification
+toastWarningBtn.addEventListener("click", (e) => {
+  const toast = e.target.parentElement;
+
+  if (!toast.classList.contains("visually-hidden")) {
+    toast.classList.add("visually-hidden");
+    toast.setAttribute("aria-hidden", "true");
+  } else {
+    toast.classList.remove("visually-hidden");
+    toast.setAttribute("aria-hidden", "false");
+  }
+});

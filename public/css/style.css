@@ -7,6 +7,8 @@
   --clr-dark-blue: hsl(224, 42%, 12%);
   --clr-soft-white: hsl(240, 50%, 99%);
   --clr-grey: hsl(0, 0%, 75%);
+  --clr-warning: hsl(43, 100%, 56%);
+  --clr-error: hsl(0, 100%, 40%);
 
   --fw-400: 400;
   --fw-500: 500;
@@ -49,10 +51,75 @@ a {
   font-weight: var(--fw-500);
 }
 
+a:hover,
+a:focus {
+  opacity: 0.6;
+}
+
 main {
   width: 100%;
   padding-inline: 1rem;
 }
+
+/* Toast */
+.toast-wrapper {
+  width: min(100%, 450px);
+  margin-inline: auto;
+  margin-bottom: 1rem;
+}
+
+.toast {
+  padding: 1rem;
+  background-color: var(--clr-soft-white);
+  border-radius: 7px;
+  color: var(--clr-dark-blue);
+  display: grid;
+  grid-template-columns: 1.3fr 6fr 0.5fr;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+.toast p {
+  margin: 0;
+}
+
+.warning {
+  border-left: 8px solid var(--clr-warning);
+}
+
+.container-1 i {
+  font-size: 2.2rem;
+  color: var(--clr-warning);
+}
+
+.container-1,
+.container-2 {
+  align-self: center;
+}
+
+.container-2 p:first-child {
+  font-size: 1rem;
+  color: #101020;
+  font-weight: var(--fw-600);
+}
+
+.container-2 p:last-child {
+  font-size: 0.8rem;
+  color: #656565;
+  font-weight: var(--fw-400);
+}
+
+.toast button {
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: var(--fw-600);
+  line-height: 0;
+  color: #656565;
+  align-self: flex-start;
+  background-color: transparent;
+  border: none;
+}
+
+/* Form */
 
 .grid-container {
   display: grid;
@@ -69,10 +136,15 @@ main {
   display: grid;
   transition: transform 0.5s;
   transform-style: preserve-3d;
+  border-radius: 0.625rem;
 }
 
 .form-card.active .form-card-inner {
   transform: rotateY(180deg);
+}
+
+.form-card-front {
+  box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.5);
 }
 
 .form-card-front,
@@ -84,7 +156,7 @@ main {
   background-color: var(--clr-dark-blue);
 }
 
-.form-card-front,
+.form-card-front h1,
 .form-card-back h1 {
   text-align: center;
   margin-bottom: 2rem;
@@ -123,7 +195,7 @@ main {
 }
 
 .form-field.invalid input {
-  border: 2px solid red;
+  border: 2px solid var(--clr-error);
   animation: errorShake 0.5s;
 }
 
@@ -161,7 +233,7 @@ main {
 
 .form-field.invalid .help {
   display: block;
-  color: hsl(0, 100%, 40%);
+  color: var(--clr-error);
   margin-top: 0.3125rem;
   font-size: 12px;
   letter-spacing: 1px;
@@ -183,7 +255,13 @@ input[type="submit"] {
   border-radius: 0.3125rem;
 }
 
-.sign-up-now {
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+  opacity: 0.6;
+}
+
+.sign-up-now,
+.login-now {
   display: block;
   text-align: center;
 }
